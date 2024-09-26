@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","11841","test_reset_password","3c_Manager.tests","Thu Sep 26 12:21:09 UTC 2024","passed","Thu Sep 26 12:21:21 UTC 2024","","login_pg_reset_password_test","",""
+"","13126","test_reset_password","3c_Manager.tests","Thu Sep 26 12:21:25 UTC 2024","passed","Thu Sep 26 12:21:39 UTC 2024","","login_pg_reset_password_test","",""
