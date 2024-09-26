@@ -1,0 +1,10 @@
+/.idea
+3c_Manager/.idea/workspace.xml
+3c_Manager/tests/.DS_Store
+3c_Manager/.env
+3c_Manager/tests/traces/.DS_Store
+traces/trace.zip
+3c_Manager/tests/__pycache__/common_functions.cpython-312.pyc
+3c_Manager/tests/__pycache__/login_pg_reset_password_test.cpython-312-pytest-8.3.3.pyc
+/3c_Manager/tests/traces
+3c_Manager/.env
