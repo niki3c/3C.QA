@@ -41,16 +41,29 @@ jobs:
       env:
         PLAYWRIGHT_TRACE_DIR: traces/
         STAGE_MANAGER_LOGIN_URL: ${{ secrets.STAGE_MANAGER_LOGIN_URL }}
-        BROWSER: "chromium"
+        BROWSER: "chromium"  # Make sure this matches the test configuration
+
+    # Add a step to upload allure-results as an artifact for further analysis
+    - name: Upload Allure results
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-results
+        path: allure-results/
+        retention-days: 14
 
     - name: Set up Allure command line
       run: |
         npm install -g allure-commandline --save-dev
         allure generate allure-results --clean -o allure-report
 
+    # Upload the allure-report for access after the pipeline run
     - name: Upload Allure report
       uses: actions/upload-artifact@v3
       with:
         name: allure-report
         path: allure-report/
         retention-days: 14
+
+    # Optionally, you can also print the Allure report URL or display it
+    - name: Serve Allure report URL (optional)
+      run: echo "Allure report is uploaded and available for download."
