@@ -9,7 +9,7 @@ load_dotenv()
 
 def test_reset_password(playwright):
     # Convert the returned string to a boolean
-    headless_mode = os.getenv("HEADLESS_MODE", "false").strip().lower() == "true"
+    headless_mode = os.getenv("HEADLESS_MODE", "true").strip().lower() == "true"
     # test it in all 3 browsers
     # browser_types = ['chromium', 'firefox', 'webkit']
     # for browser_type in browser_types:
