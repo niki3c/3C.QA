@@ -34,12 +34,6 @@ jobs:
     - name: Create traces directory
       run: mkdir -p traces/
 
-    # Add a step to load environment variables from the .env file
-    - name: Load environment variables from .env
-      run: |
-        cat .env
-        export $(cat .env | xargs)  # Load .env variables into the environment
-
     - name: Run Playwright tests with Allure reporting
       run: |
         export PYTHONPATH=$(pwd)
