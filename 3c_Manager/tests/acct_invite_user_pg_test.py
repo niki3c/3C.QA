@@ -12,12 +12,15 @@ load_dotenv()
 def test_display_org_pg(playwright):
     valid_username = os.getenv("STAGE_MANAGER_TESTING_USERNAME")
     valid_password = os.getenv("STAGE_MANAGER_TESTING_PW")
+
+    # Convert the returned string to a boolean
     # Convert the returned string to a boolean
     headless_mode = os.getenv("HEADLESS_MODE", "false").strip().lower() == "true"
-    # Test all three browsers
-    # browser_types = ['chromium', 'firefox', 'webkit']
-    # for browser_type in browser_types:
-    page, browser, context, stage_manager_url = display_initial_page(playwright, os.getenv("BROWSER"), headless_mode, 'login',500)
+
+    # Initialize page and browser
+    page, browser, context, stage_manager_url = display_initial_page(
+        playwright, os.getenv("BROWSER"), headless_mode, 'login', 500)
+
     login_to_manager(page, valid_username, valid_password)
     # Click on Users, in the left menu
     page.get_by_role("link", name="Users").click()

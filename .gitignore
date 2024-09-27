@@ -10,3 +10,5 @@ traces/trace.zip
 3c_Manager/.env
 .DS_Store
 
+*.pyc
+*.pyc

@@ -14,21 +14,22 @@ def test_display_org_pg(playwright):
     # Convert the returned string to a boolean
     headless_mode = os.getenv("HEADLESS_MODE", "false").strip().lower() == "true"
 
-    # Test all three browsers
-    # browser_types = ['chromium', 'firefox', 'webkit']
-    # for browser_type in browser_types:
-    page, browser, context, stage_manager_url = display_initial_page(playwright, os.getenv("BROWSER"), headless_mode, 'login',500)
+    # Initialize page and browser
+    page, browser, context, stage_manager_url = display_initial_page(
+        playwright, os.getenv("BROWSER"), headless_mode, 'login', 500)
+
     page.locator("#login-app input[type=\"text\"]").fill(valid_username)
     page.locator("input[type=\"password\"]").fill(valid_password)
+
     # Click the Continue button
     page.get_by_label("tc-button").nth(2).click()
+
     # Click on Users, in the left menu
     page.get_by_role("link", name="Users").click()
+
     # Verify the Invite User button is displayed
     expect(page.get_by_label("false").locator("span")).to_contain_text("Invite User")
+
     # ---------------------
     context.close()
     browser.close()
-
-# with sync_playwright() as pw:
-#     display_org_pg(pw)

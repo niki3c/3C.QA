@@ -43,7 +43,23 @@ jobs:
     - name: Run Playwright tests with Allure reporting
       run: |
         export PYTHONPATH=$(pwd)
-        pytest 3c_Manager/tests/login_pg_reset_password_test.py --alluredir=allure-results
+        pytest 3c_Manager/tests/acct_invite_user_pg_test.py         --alluredir=allure=results
+        pytest 3c_Manager/tests/acct_notifications_pg_test.py       --alluredir=allure=results
+        pytest 3c_Manager/tests/acct_profile_pg_test.py             --alluredir=allure=results
+        pytest 3c_Manager/tests/acct_settings_pg_test.py            --alluredir=allure=results
+        pytest 3c_Manager/tests/acct_users_pg_test.py               --alluredir=allure-results
+        pytest 3c_Manager/tests/login_pg_reset_password_test.py     --alluredir=allure-results
+        pytest 3c_Manager/tests/login_pg_verify_credentials_test.py --alluredir=allure-results
+        pytest 3c_Manager/tests/login_pg_weak_password_test.py      --alluredir=allure-results
+        pytest 3c_Manager/tests/mgr_session_timeout_test.py         --alluredir=allure-results
+        pytest 3c_Manager/tests/org_left_menu_test.py               --alluredir=allure-results
+        pytest 3c_Manager/tests/prod_pg_load_time_test.py           --alluredir=allure-results
+        pytest 3c_Manager/tests/prod_pg_verify_products_test.py     --alluredir=allure-results
+        pytest 3c_Manager/tests/reg_pg_invalid_email_test.py        --alluredir=allure-results
+        pytest 3c_Manager/tests/reg_pg_sign_up_test.py              --alluredir=allure-results
+        pytest 3c_Manager/tests/reg_pg_terms_and_conditions_test.py --alluredir=allure-results
+        pytest 3c_Manager/tests/reg_pg_valid_password_test.py       --alluredir=allure-results
+        pytest 3c_Manager/tests/reg_pg_weak_password_test.py        --alluredir=allure-results
       env:
         PLAYWRIGHT_TRACE_DIR: traces/
         STAGE_MANAGER_LOGIN_URL: ${{ secrets.STAGE_MANAGER_LOGIN_URL }}

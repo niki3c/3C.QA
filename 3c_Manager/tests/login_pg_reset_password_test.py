@@ -2,7 +2,6 @@ import os
 from common_functions import display_initial_page
 from playwright.sync_api import sync_playwright, expect
 from dotenv import load_dotenv
-import pytest
 import allure
 from allure_commons.types import AttachmentType
 
@@ -17,7 +16,7 @@ def test_reset_password(playwright):
         playwright, os.getenv("BROWSER"), headless_mode, 'login', 500)
 
     # Enable tracing for additional debugging if needed
-    context.tracing.start(screenshots=True, snapshots=True, sources=True)
+    context.tracing.start(screenshots=False, snapshots=True, sources=True)
 
     try:
         # Let's try this 3 times
