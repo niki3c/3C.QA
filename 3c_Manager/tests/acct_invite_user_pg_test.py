@@ -15,7 +15,7 @@ def test_display_org_pg(playwright):
 
     # Convert the returned string to a boolean
     # Convert the returned string to a boolean
-    headless_mode = os.getenv("HEADLESS_MODE", "false").strip().lower() == "true"
+    headless_mode = os.getenv("HEADLESS_MODE", "True").strip().lower() == "true"
 
     # Initialize page and browser
     page, browser, context, stage_manager_url = display_initial_page(
