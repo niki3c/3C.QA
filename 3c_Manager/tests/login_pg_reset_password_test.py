@@ -9,7 +9,7 @@ load_dotenv()
 
 def test_reset_password(playwright):
     # Convert the returned string to a boolean
-    headless_mode = os.getenv("HEADLESS_MODE", "true").strip().lower() == "true"
+    headless_mode = os.getenv("HEADLESS_MODE", "true").strip().lower() == "true" 
 
     # Initialize page and browser
     page, browser, context, stage_manager_url = display_initial_page(
