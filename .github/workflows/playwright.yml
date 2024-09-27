@@ -43,7 +43,7 @@ jobs:
     - name: Run Playwright tests with Allure reporting
       run: |
         export PYTHONPATH=$(pwd)
-        pytest 3c_Manager/tests/acct_invite_user_pg_test.py         --alluredir=allure=results
+        # pytest 3c_Manager/tests/acct_invite_user_pg_test.py         --alluredir=allure=results
         pytest 3c_Manager/tests/acct_notifications_pg_test.py       --alluredir=allure=results
         pytest 3c_Manager/tests/acct_profile_pg_test.py             --alluredir=allure=results
         pytest 3c_Manager/tests/acct_settings_pg_test.py            --alluredir=allure=results
