@@ -41,7 +41,7 @@ def test_validate_left_menu(playwright: Playwright) -> None:
     # browser_types = ['chromium', 'firefox', 'webkit']
     #for browser_type in browser_types:
     page, browser, context, stage_manager_url = display_initial_page(playwright, os.getenv("BROWSER"),
-                                                                     headless_mode, 'login', 500)
+                                                                     headless_mode, 'login', 2000)
     login_to_manager(page, valid_username, valid_password)
     # Are we on the Products page
     expect(page.get_by_role("main")).to_contain_text("All products")
