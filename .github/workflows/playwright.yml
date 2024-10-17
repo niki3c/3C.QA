@@ -63,6 +63,8 @@ jobs:
       env:
         PLAYWRIGHT_TRACE_DIR: traces/
         STAGE_MANAGER_LOGIN_URL: ${{ secrets.STAGE_MANAGER_LOGIN_URL }}
+        STAGE_MANAGER_TESTING_USERNAME: ${{ secrets.STAGE_MANAGER_TESTING_USERNAME }}
+        STAGE_MANAGER_TESTING_PW: ${{ secrets.STAGE_MANAGER_TESTING_PW }}
         BROWSER: "chromium"  # Adjust as per your test configuration
 
     # Step 7: Set up Allure command line
