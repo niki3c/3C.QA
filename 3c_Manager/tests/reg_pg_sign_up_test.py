@@ -41,7 +41,7 @@ def test_valid_signup(playwright) -> None:
     # Click the Skip button
     #====NEW===
     page.locator("button").filter(has_text="Skip").wait_for(state="visible", timeout=10000)
-    page.locator("button").filter(has_text="Skip").click()
+    #page.locator("button").filter(has_text="Skip").click()
     # Verify that we are on the Products page
     expect(page.locator("#presentation-layout")).to_contain_text("Products")
     # Sign out
