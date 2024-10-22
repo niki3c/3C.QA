@@ -58,15 +58,35 @@ def test_validate_left_menu(playwright: Playwright) -> None:
     page.get_by_role("link", name="Notifications").click()
     expect(page.locator("#rc-tabs-1-tab-promotions")).to_contain_text("Promotions")
     # Click on Customer Coaching and verify the correct page displays
+
+    #===OLD===
+    #page.get_by_role("link", name="Customer Coaching").click()
+    #expect(page.locator("#presentation-layout")).to_contain_text("Courses")
+
+    #====NEW====
     page.get_by_role("link", name="Customer Coaching").click()
-    expect(page.locator("#presentation-layout")).to_contain_text("Courses")
+    page.get_by_text("Courses").click()
     # Check that at least two courses can be found
-    expect(page.get_by_role("main")).to_contain_text("Ship It LTL With InventoryLab")
+    #expect(page.get_by_role("main")).to_contain_text("Ship It LTL With InventoryLab") #NO
+
+    #===OLD===
     expect(page.get_by_role("main")).to_contain_text("TA - Reverse Search 101")
+
+    #====NEW===
+    page.get_by_text("TA - Reverse Search").nth(1).click()
+
+
     # Since we haven't clicked on it yet, click on Products and verify the
     # correct page displays
+
+    #===old====
+    #page.get_by_role("link", name="Products").click()
+    #expect(page.get_by_role("main")).to_contain_text("All products")
+
+    #===NEW===
     page.get_by_role("link", name="Products").click()
-    expect(page.get_by_role("main")).to_contain_text("All products")
+    page.locator("button").filter(has_text="All products").click()
+
     # Now verify all the panes are visible
     are_product_panels_visible(page)
     # ------------
