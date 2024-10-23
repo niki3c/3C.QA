@@ -23,7 +23,7 @@ def test_valid_signup(playwright) -> None:
     # Verify the "Get started..." page is displayed
     expect(page.get_by_text("Get started in minutes")).to_be_visible()
     # Enter user's email
-    page.get_by_role("textbox").fill(email)
+    page.get_by_role("textbox").fill("testNiki111@yopmail.com")
     page.locator("button").filter(has_text="Continue with email").click()
     # Verify the Welcome to Threecolts page is displayed
     expect(page.get_by_text("Welcome to Threecolts!")).to_be_visible()
@@ -31,11 +31,11 @@ def test_valid_signup(playwright) -> None:
     # Enter your full name field.
     expect(page.locator("#app")).to_contain_text(f"You’re registering as {email}")
     # Enter user's name
-    page.locator("#app input[name=\"full_name\"]").fill(fullname)
+    page.locator("#app input[name=\"full_name\"]").fill('Niki Test')
     # enter user's pw and confirm
-    page.locator("input[name=\"password\"]").fill(userpass)
+    page.locator("input[name=\"password\"]").fill('testNiki111@yopmail.com')
     # Confirm pw
-    page.locator("input[name=\"confirm_password\"]").fill(userpass)
+    page.locator("input[name=\"confirm_password\"]").fill('testNiki111@yopmail.com')
     # Click the Continue button
     page.get_by_label("tc-button").click()
     # Click the Skip button
